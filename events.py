@@ -13,9 +13,10 @@ class Events:
         mbox.setStandardButtons(QtWidgets.QMessageBox.StandardButton.Yes | QtWidgets.QMessageBox.StandardButton.No)
         mbox.setDefaultButton(QtWidgets.QMessageBox.StandardButton.No)
         mbox.button(QtWidgets.QMessageBox.StandardButton.Yes).setText("Yes")
-        mbox.button(QtWidgets.QMessageBox.StandardButton.Yes).setText("Go back")
+        mbox.button(QtWidgets.QMessageBox.StandardButton.No).setText("Go back")
         mbox.resize(600, 800)
+
         if mbox.exec() == QtWidgets.QMessageBox.StandardButton.Yes:
             sys.exit()
         else:
-            mbox.destroy()
+            mbox.hide()
