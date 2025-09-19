@@ -9,6 +9,9 @@ class Main(QtWidgets.QMainWindow):
         self.ui = Ui_main_window()
         self.ui.setupUi(self)
 
+        #functions in menu bar
+        self.ui.actionExit.triggered.connect(Events.messageExit)
+
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
     window = Main()
