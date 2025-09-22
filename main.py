@@ -11,7 +11,6 @@ class Main(QtWidgets.QMainWindow):
         super(Main, self).__init__()
         globals.ui = Ui_main_window()
         globals.ui.setupUi(self)
-
         #functions in menu bar
         globals.ui.actionExit.triggered.connect(Events.messageExit)
 
@@ -19,7 +18,7 @@ class Main(QtWidgets.QMainWindow):
         globals.ui.txt_dnicif.editingFinished.connect(Customers.checkDni)
 
         #functions in buttons
-
+        globals.ui.btn_calendar.clicked.connect(Events.openCalendar)
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)

@@ -24,6 +24,7 @@ class Ui_window_calendar(object):
         self.calendar.setGeometry(QtCore.QRect(0, 0, 391, 251))
         self.calendar.setMinimumSize(QtCore.QSize(391, 251))
         self.calendar.setMaximumSize(QtCore.QSize(391, 251))
+        self.calendar.setGridVisible(False)
         self.calendar.setVerticalHeaderFormat(QtWidgets.QCalendarWidget.VerticalHeaderFormat.NoVerticalHeader)
         self.calendar.setObjectName("calendar")
         window_calendar.setCentralWidget(self.centralwidget)

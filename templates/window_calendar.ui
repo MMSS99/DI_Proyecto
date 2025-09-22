@@ -51,6 +51,9 @@
       <height>251</height>
      </size>
     </property>
+    <property name="gridVisible">
+     <bool>false</bool>
+    </property>
     <property name="verticalHeaderFormat">
      <enum>QCalendarWidget::NoVerticalHeader</enum>
     </property>
