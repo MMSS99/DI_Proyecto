@@ -28,7 +28,8 @@ class Events:
 
     def openCalendar(self=None):
         try:
-            window_calendar.show()
+            globals.calendar.setupUi(self)
+            globals.calendar.show()
 
 
         except Exception as e:

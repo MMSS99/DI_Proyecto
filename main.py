@@ -4,6 +4,7 @@ import globals
 from customers import *
 from events import *
 from window import *
+from window_calendar import *
 import sys
 
 class Main(QtWidgets.QMainWindow):
@@ -11,6 +12,7 @@ class Main(QtWidgets.QMainWindow):
         super(Main, self).__init__()
         globals.ui = Ui_main_window()
         globals.ui.setupUi(self)
+        globals.calendar = Ui_window_calendar()
         #functions in menu bar
         globals.ui.actionExit.triggered.connect(Events.messageExit)
 
