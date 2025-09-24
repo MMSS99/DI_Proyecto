@@ -6,6 +6,7 @@ class Customers:
         try:
             dni = globals.ui.txt_dnicif.text()
             dni = str(dni).upper()
+            globals.ui.txt_dnicif.setText(dni)
             tabla = "TRWAGMYFPDXBNJZSQVHLCKE"
             dig_ext = "XYZ"
             reemp_dig_ext = {'X': '0', 'Y': '1', 'Z': '2'}
@@ -27,3 +28,11 @@ class Customers:
                 globals.ui.txt_dnicif.setFocus()
         except Exception as error:
             print("error en validar dni ", error)
+
+    def capitalize(texttocapitalize):
+        try:
+            texttocapitalize = str(texttocapitalize).upper()
+            return texttocapitalize
+
+        except Exception as error:
+            print("Error while capitalizing the name/surname ", error)

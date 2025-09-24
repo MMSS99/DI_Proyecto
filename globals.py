@@ -1,2 +1,2 @@
 ui = None
-calendar = None
+dlg_calendar = None

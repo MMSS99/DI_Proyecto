@@ -1,5 +1,6 @@
 import sys
 import globals
+import time
 from PyQt6 import QtWidgets, QtCore, QtGui
 
 
@@ -28,9 +29,20 @@ class Events:
 
     def openCalendar(self=None):
         try:
-            globals.calendar.setupUi(self)
-            globals.calendar.show()
+            globals.dlg_calendar.show()
 
 
         except Exception as e:
             print("Error while opening the calendar window", e)
+
+
+    def loadData(qDate):
+        try:
+            data = ('{:02d}/{:02d}/{:4d}'.format(qDate.day(), qDate.month(), qDate.year()))
+            if globals.ui.tabWidget_main.currentIndex() == 0:
+                globals.ui.txt_registrationdate.setText(data)
+            time.sleep(0.3)
+            globals.dlg_calendar.hide()
+
+        except Exception as e:
+            print("Failed to load data into registration date", e)

@@ -12,7 +12,7 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 class Ui_main_window(object):
     def setupUi(self, main_window):
         main_window.setObjectName("main_window")
-        main_window.resize(1120, 880)
+        main_window.resize(1120, 892)
         self.centralwidget = QtWidgets.QWidget(parent=main_window)
         self.centralwidget.setObjectName("centralwidget")
         self.gridLayout_3 = QtWidgets.QGridLayout(self.centralwidget)
@@ -172,6 +172,7 @@ class Ui_main_window(object):
         self.txt_registrationdate.setMaximumSize(QtCore.QSize(113, 20))
         self.txt_registrationdate.setText("")
         self.txt_registrationdate.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        self.txt_registrationdate.setReadOnly(True)
         self.txt_registrationdate.setObjectName("txt_registrationdate")
         self.gridLayout.addWidget(self.txt_registrationdate, 0, 4, 1, 1)
         self.lbl_address = QtWidgets.QLabel(parent=self.tab_customers)

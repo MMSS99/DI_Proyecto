@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1120</width>
-    <height>880</height>
+    <height>892</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -489,6 +489,9 @@
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
+            </property>
+            <property name="readOnly">
+             <bool>true</bool>
             </property>
             <property name="placeholderText">
              <string>DD/MM/AAAA</string>
