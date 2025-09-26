@@ -20,8 +20,10 @@ class Main(QtWidgets.QMainWindow):
 
         #functions in entries
         globals.ui.txt_dnicif.editingFinished.connect(Customers.checkDni)
-        globals.ui.txt_name.editingFinished.connect(Customers.capitalize)
-        globals.ui.txt_surname.editingFinished.connect(Customers.capitalize)
+        globals.ui.txt_name.editingFinished.connect(lambda: Customers.capitalize(globals.ui.txt_name.text(), globals.ui.txt_name))
+        globals.ui.txt_surname.editingFinished.connect(lambda: Customers.capitalize(globals.ui.txt_surname.text(), globals.ui.txt_surname))
+        globals.ui.txt_email.editingFinished.connect(Customers.checkMail)
+        globals.ui.txt_phone.editingFinished.connect(Customers.checkMobile)
 
         #functions in buttons
         globals.ui.btn_calendar.clicked.connect(Events.openCalendar)
@@ -32,3 +34,6 @@ if __name__ == "__main__":
     window.setWindowIcon(QtGui.QIcon("./img/logo.ico"))
     window.showMaximized()
     sys.exit(app.exec())
+
+#16 octubre exámen teórico
+#14 noviembre exámen práctico
