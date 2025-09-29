@@ -1,10 +1,12 @@
 from PyQt6.QtWidgets import QTableWidget, QWidget
 
+import events
 import globals
 from venAux import *
 from customers import *
 from events import *
 from window import *
+from connection import *
 import sys
 
 class Main(QtWidgets.QMainWindow):
@@ -14,6 +16,9 @@ class Main(QtWidgets.QMainWindow):
         globals.ui.setupUi(self)
         #instancias
         globals.dlg_calendar = Calendar()
+
+        #conection
+        Connection.db_connection()
 
         #functions in menu bar
         globals.ui.actionExit.triggered.connect(Events.messageExit)
@@ -27,6 +32,10 @@ class Main(QtWidgets.QMainWindow):
 
         #functions in buttons
         globals.ui.btn_calendar.clicked.connect(Events.openCalendar)
+
+        #functions in combobox
+        Events.loadProv(self)
+        globals.ui.cmb_provinces.currentIndexChanged.connect(events.Events.loadMuni)
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)

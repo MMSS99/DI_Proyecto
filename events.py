@@ -1,4 +1,6 @@
 import sys
+
+import connection
 import globals
 import time
 from PyQt6 import QtWidgets, QtCore, QtGui
@@ -46,3 +48,20 @@ class Events:
 
         except Exception as e:
             print("Failed to load data into registration date", e)
+
+    def loadProv(self=None):
+        try:
+            globals.ui.cmb_provinces.clear()
+            list = connection.Connection.listProv(self)
+            globals.ui.cmb_provinces.addItems(list)
+        except Exception as e:
+            print("Failed to load data into province list", e)
+
+    def loadMuni(self=None):
+        try:
+            province = globals.ui.cmb_provinces.currentText()
+            list = connection.Connection.listMuniProv(province)
+            globals.ui.cmb_cities.clear()
+            globals.ui.cmb_cities.addItems(list)
+        except Exception as e:
+            print("Failed to load data into municipalities list", e)

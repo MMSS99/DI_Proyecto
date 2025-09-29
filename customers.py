@@ -46,15 +46,15 @@ class Customers:
 
     @staticmethod
     def checkMobile(self=None):
-        number = globals.ui.txt_mobile.text()
+        number = globals.ui.txt_phone.text()
         pattern = r'^[67]\d{8}$'
         if re.match(pattern, number):
-            globals.ui.txt_mobile.setStyleSheet('background-color: rgb(255, 255, 220); color: black')
+            globals.ui.txt_phone.setStyleSheet('background-color: rgb(255, 255, 220); color: black')
         else:
-            globals.ui.txt_mobile.setStyleSheet('background-color:#FFC0CB; color: black')
-            globals.ui.txt_mobile.setText(None)
-            globals.ui.txt_mobile.setPlaceholderText("Invalid phone")
-            globals.ui.txt_mobile.setFocus()
+            globals.ui.txt_phone.setStyleSheet('background-color:#FFC0CB; color: black')
+            globals.ui.txt_phone.setText(None)
+            globals.ui.txt_phone.setPlaceholderText("Invalid phone")
+            globals.ui.txt_phone.setFocus()
 
 
 
