@@ -16,12 +16,16 @@ class Main(QtWidgets.QMainWindow):
         globals.ui.setupUi(self)
         #instancias
         globals.dlg_calendar = Calendar()
+        globals.dlg_about = About()
 
         #conection
         Connection.db_connection()
+        Customers.loadTable(self)
+        Events.resizeTabCustomer(self)
 
         #functions in menu bar
         globals.ui.actionExit.triggered.connect(Events.messageExit)
+        globals.ui.actionAbout.triggered.connect(Events.showAbout)
 
         #functions in entries
         globals.ui.txt_dnicif.editingFinished.connect(Customers.checkDni)

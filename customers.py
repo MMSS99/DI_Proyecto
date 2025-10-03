@@ -1,6 +1,11 @@
 import re
 
+from PyQt6 import QtCore
+from PyQt6.QtWidgets import QTableWidget, QWidget
+from PyQt6.uic.Compiler.qtproxies import QtWidgets
+
 import globals
+from connection import *
 
 class Customers:
     @staticmethod
@@ -55,6 +60,29 @@ class Customers:
             globals.ui.txt_phone.setText(None)
             globals.ui.txt_phone.setPlaceholderText("Invalid phone")
             globals.ui.txt_phone.setFocus()
+
+    def loadTable(self):
+        try:
+            listTabCustomers = Connection.getCustomers()
+            print(listTabCustomers)
+            index = 0
+            for record in listTabCustomers:
+                globals.ui.tableWidget.setRowCount(index + 1)
+                globals.ui.tableWidget.setItem(index, 0, QtWidgets.QTableWidgetItem(str(record[2])))
+                globals.ui.tableWidget.setItem(index, 1, QtWidgets.QTableWidgetItem(str(record[3])))
+                globals.ui.tableWidget.setItem(index, 2, QtWidgets.QTableWidgetItem(str(record[5])))
+                globals.ui.tableWidget.setItem(index, 3, QtWidgets.QTableWidgetItem(str(record[7])))
+                globals.ui.tableWidget.setItem(index, 4, QtWidgets.QTableWidgetItem(str(record[8])))
+                globals.ui.tableWidget.setItem(index, 5, QtWidgets.QTableWidgetItem(str(record[9])))
+                globals.ui.tableWidget.item(index, 0).setTextAlignment(QtCore.Qt.AlignmentFlag.AlignLeft.AlignVCenter)
+                globals.ui.tableWidget.item(index, 1).setTextAlignment(QtCore.Qt.AlignmentFlag.AlignLeft.AlignVCenter)
+                globals.ui.tableWidget.item(index, 2).setTextAlignment(QtCore.Qt.AlignmentFlag.AlignCenter.AlignCenter)
+                globals.ui.tableWidget.item(index, 3).setTextAlignment(QtCore.Qt.AlignmentFlag.AlignCenter.AlignCenter)
+                globals.ui.tableWidget.item(index, 4).setTextAlignment(QtCore.Qt.AlignmentFlag.AlignCenter.AlignCenter)
+                globals.ui.tableWidget.item(index, 5).setTextAlignment(QtCore.Qt.AlignmentFlag.AlignCenter.AlignCenter)
+                index += 1
+        except Exception as error:
+            print("error en loadTable ", error)
 
 
 

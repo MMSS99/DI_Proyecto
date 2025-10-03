@@ -4,7 +4,7 @@ import connection
 import globals
 import time
 from PyQt6 import QtWidgets, QtCore, QtGui
-
+from PyQt6.QtWidgets import QTableWidget, QWidget
 
 class Events:
     @staticmethod
@@ -37,6 +37,12 @@ class Events:
         except Exception as e:
             print("Error while opening the calendar window", e)
 
+    def showAbout(self=None):
+        try:
+            globals.dlg_about.show()
+        except Exception as e:
+            print("Error while showing the about window", e)
+
 
     def loadData(qDate):
         try:
@@ -65,3 +71,19 @@ class Events:
             globals.ui.cmb_cities.addItems(list)
         except Exception as e:
             print("Failed to load data into municipalities list", e)
+
+    def resizeTabCustomer(self):
+        try:
+            header = globals.ui.tableWidget.horizontalHeader()
+            for i in range(header.count()):
+                if i == 3:
+                    header.setSectionResizeMode(i, QtWidgets.QHeaderView.ResizeMode.ResizeToContents)
+                else:
+                    header.setSectionResizeMode(i, QtWidgets.QHeaderView.ResizeMode.Stretch)
+                header_items = globals.ui.tableWidget.horizontalHeaderItem(i)
+                font = header_items.font()
+                font.setBold(True)
+                header_items.setFont(font)
+
+        except Exception as e:
+            print("Failed to resize tab header", e)
