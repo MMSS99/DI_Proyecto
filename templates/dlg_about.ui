@@ -25,68 +25,121 @@
   <property name="windowTitle">
    <string>About</string>
   </property>
-  <widget class="QGraphicsView" name="view_icon">
-   <property name="geometry">
-    <rect>
-     <x>60</x>
-     <y>10</y>
-     <width>256</width>
-     <height>192</height>
-    </rect>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::WinPanel</enum>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Sunken</enum>
-   </property>
-  </widget>
-  <widget class="QLabel" name="lbl_MOTD">
-   <property name="geometry">
-    <rect>
-     <x>60</x>
-     <y>210</y>
-     <width>260</width>
-     <height>25</height>
-    </rect>
-   </property>
-   <property name="minimumSize">
-    <size>
-     <width>256</width>
-     <height>25</height>
-    </size>
-   </property>
-   <property name="text">
-    <string>TextLabel</string>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="btn_closeAbout">
+  <widget class="QLabel" name="lbl_icon">
    <property name="geometry">
     <rect>
      <x>150</x>
-     <y>260</y>
-     <width>80</width>
-     <height>25</height>
+     <y>30</y>
+     <width>111</width>
+     <height>121</height>
     </rect>
    </property>
-   <property name="minimumSize">
-    <size>
-     <width>80</width>
-     <height>25</height>
-    </size>
-   </property>
-   <property name="maximumSize">
-    <size>
-     <width>80</width>
-     <height>25</height>
-    </size>
-   </property>
    <property name="text">
-    <string>Close</string>
+    <string/>
    </property>
+   <property name="pixmap">
+    <pixmap>../img/icon.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>382</width>
+     <height>287</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QGraphicsView" name="view_icon">
+      <property name="frameShape">
+       <enum>QFrame::WinPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Sunken</enum>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="lbl_MOTD">
+      <property name="minimumSize">
+       <size>
+        <width>380</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>380</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <weight>75</weight>
+        <italic>true</italic>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Gestor de clientes de Megaturboempresa Teis</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="lbl_version">
+      <property name="minimumSize">
+       <size>
+        <width>380</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>380</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <weight>75</weight>
+        <italic>false</italic>
+        <bold>true</bold>
+        <underline>true</underline>
+       </font>
+      </property>
+      <property name="text">
+       <string>V. 0.0.1</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="btn_closeAbout">
+      <property name="minimumSize">
+       <size>
+        <width>80</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>80</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>Close</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
  </widget>
  <resources/>
