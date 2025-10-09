@@ -34,6 +34,9 @@ class Main(QtWidgets.QMainWindow):
         globals.ui.txt_email.editingFinished.connect(Customers.checkMail)
         globals.ui.txt_phone.editingFinished.connect(Customers.checkMobile)
 
+        #funcitons in table
+        globals.ui.tableWidget.clicked.connect(Customers.selectCustomer)
+
         #functions in buttons
         globals.ui.btn_calendar.clicked.connect(Events.openCalendar)
 

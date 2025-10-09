@@ -88,6 +88,7 @@ class Customers:
     def selectCustomer():
         try:
             row_selected = globals.ui.tableWidget.selectedItems()
+            print (row_selected[2].text())
             mobile_customer_selected = row_selected[2].text()
             all_customer_data = Connection.getCustomerData(str(mobile_customer_selected))
 
@@ -95,15 +96,15 @@ class Customers:
                               globals.ui.txt_email, globals.ui.txt_phone, globals.ui.txt_address]
 
             for i in range(len(all_data_boxes)):
-                all_data_boxes[i].setText(all_customer_data[i])
+                all_data_boxes[i].setText(str(all_customer_data[i]))
 
             globals.ui.cmb_provinces.setCurrentText(str(all_customer_data[7]))
             globals.ui.cmb_cities.setCurrentText(str(all_customer_data[8]))
 
             if str(all_customer_data[9]) == "paper":
-                globals.ui.rb_paper.setChecked(True)
+                globals.ui.rbt_physicalbill.setChecked(True)
             else:
-                globals.ui.rb_electronic.setChecked(True)
+                globals.ui.rbt_digitalbill.setChecked(True)
 
             print("rowSelected: ", all_customer_data)
         except Exception as error:

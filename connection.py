@@ -70,3 +70,19 @@ class Connection:
                 row = [query.value(i) for i in range(query.record().count())]
                 all_customers.append(row)
         return all_customers
+
+    @staticmethod
+    def getCustomerData(customer_phone):
+        try:
+            all_customer_data = []
+            query = QtSql.QSqlQuery()
+            query.prepare("SELECT * FROM customers WHERE mobile = :mobile;")
+            query.bindValue(":mobile", str(customer_phone).strip())
+            if query.exec():
+                while query.next():
+                    for i in range(query.record().count()):
+                        all_customer_data.append(query.value(i))
+
+            return all_customer_data
+        except Exception as error:
+            print("Error getCustomerData: ", error)
