@@ -64,7 +64,8 @@ class Connection:
     def getCustomers():
         all_customers = []
         query = QtSql.QSqlQuery()
-        query.prepare("SELECT * FROM customers order by surname;")
+        query.prepare("SELECT * FROM customers WHERE historical = :true order by surname;")
+        query.bindValue(":true", str(True))
         if query.exec():
             while query.next():
                 row = [query.value(i) for i in range(query.record().count())]
@@ -91,7 +92,7 @@ class Connection:
     def deleteCustomer(dnicif):
         try:
             query = QtSql.QSqlQuery()
-            query.prepare("UPDATE FROM customers SET historical = :value WHERE dnicif = :dnicif;")
+            query.prepare("UPDATE customers SET historical = :value WHERE dni_nie = :dnicif;")
             query.bindValue(":dnicif", dnicif)
             query.bindValue(":value", str(False))
             if query.exec():
