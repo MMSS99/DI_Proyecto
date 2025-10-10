@@ -110,6 +110,31 @@ class Customers:
         except Exception as error:
             print("error en selectCustomer ", error)
 
+    @staticmethod
+    def deleteCustomer(self=None):
+        try:
+            mbox = QtWidgets.QMessageBox()
+            mbox.setWindowTitle("WARNING!")
+            mbox.setIcon(QtWidgets.QMessageBox.Icon.Warning)
+            mbox.setText("Delete customer?")
+            mbox.setStandardButtons(QtWidgets.QMessageBox.StandardButton.Yes | QtWidgets.QMessageBox.StandardButton.No)
+            if mbox.exec():
+                dnicif = globals.ui.txt_dnicif.text()
+                Connection.deleteCustomer(dnicif)
+                print("dnicif: ", dnicif)
+                Customers.loadTable(self)
+                mbox = QtWidgets.QMessageBox()
+                mbox.setWindowTitle("Información")
+                mbox.setIcon(QtWidgets.QMessageBox.Icon.Information)
+                mbox.setText("Deleting customer" + str(dnicif))
+            else:
+                mbox = QtWidgets.QMessageBox()
+                mbox.setWindowTitle("Warning")
+                mbox.setIcon(QtWidgets.QMessageBox.Icon.Warning)
+                mbox.setText("An error has ocurred during the delete execution. Contact the administrator or try again.")
+        except Exception as error:
+            print("Error while deleting customer", error)
+
 
 
     def capitalize(text, widget):

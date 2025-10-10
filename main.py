@@ -14,6 +14,7 @@ class Main(QtWidgets.QMainWindow):
         super(Main, self).__init__()
         globals.ui = Ui_main_window()
         globals.ui.setupUi(self)
+
         #instancias
         globals.dlg_calendar = Calendar()
         globals.dlg_about = About()

@@ -86,3 +86,18 @@ class Connection:
             return all_customer_data
         except Exception as error:
             print("Error getCustomerData: ", error)
+
+    @staticmethod
+    def deleteCustomer(dnicif):
+        try:
+            query = QtSql.QSqlQuery()
+            query.prepare("UPDATE FROM customers SET historical = :value WHERE dnicif = :dnicif;")
+            query.bindValue(":dnicif", dnicif)
+            query.bindvalue(":value", str(False))
+            if query.exec():
+                return True
+            else:
+                return False
+
+        except Exception as error:
+            print("Deleting connection method failed!", error)
