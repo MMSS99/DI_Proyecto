@@ -93,7 +93,7 @@ class Connection:
             query = QtSql.QSqlQuery()
             query.prepare("UPDATE FROM customers SET historical = :value WHERE dnicif = :dnicif;")
             query.bindValue(":dnicif", dnicif)
-            query.bindvalue(":value", str(False))
+            query.bindValue(":value", str(False))
             if query.exec():
                 return True
             else:
