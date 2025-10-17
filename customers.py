@@ -64,7 +64,7 @@ class Customers:
     def loadTable(self):
         try:
             listTabCustomers = Connection.getCustomers()
-            print("(customers.loadTable): CUSTOMER LIST LOADED")
+            print("\n(customers.loadTable): CUSTOMER LIST LOADED")
             index = 0
             for record in listTabCustomers:
                 globals.ui.tableWidget.setRowCount(index + 1)
@@ -157,10 +157,11 @@ class Customers:
             else:
                 customerInfo.append(str(False))
 
-            Connection.addCustomer(customerInfo)
+            if Connection.addCustomer(customerInfo):
+                Customers.loadTable(self)
 
         except Exception as error:
-            print ("!!(Customers.saveCustomer) Error saving customers")
+            print ("!!(Customers.saveCustomer) Error saving customers", error)
 
 
 

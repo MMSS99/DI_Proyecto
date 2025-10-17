@@ -113,6 +113,13 @@ class Connection:
             for i in range(len(valuePlaceholerList)):
                 query.bindValue(valuePlaceholerList[i], customerInfo[i])
 
+            if query.exec():
+                print ("(Connection.addCustomer) The next customer has been added: ", customerInfo)
+                return True
+            else:
+                print("!!(Connection.addCustomer) Query execution has failed! ", customerInfo)
+                return False
+
 
         except Exception as error:
             print("!!(Connection.addCustomer) Error saving the new customer! ", error)
