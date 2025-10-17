@@ -134,6 +134,34 @@ class Customers:
         except Exception as error:
             print("Error while deleting customer", error)
 
+    @staticmethod
+    def saveCustomer(self=None):
+        try:
+            customerInfo = [globals.ui.txt_dnicif.text(),
+                            globals.ui.txt_registrationdate.text(),
+                            globals.ui.txt_surname.text(),
+                            globals.ui.txt_name.text(),
+                            globals.ui.txt_email.text(),
+                            globals.ui.txt_phone.text(),
+                            globals.ui.txt_address.text(),
+                            globals.ui.cmb_provinces.currentText(),
+                            globals.ui.cmb_cities.currentText()]
+
+            if globals.ui.rbt_physicalbill.isChecked():
+                customerInfo.append("paper")
+            else:
+                customerInfo.append("electronic")
+
+            if globals.ui.chk_inactive.isChecked():
+                customerInfo.append(str(True))
+            else:
+                customerInfo.append(str(False))
+
+            Connection.addCustomer(customerInfo)
+
+        except Exception as error:
+            print ("!!(Customers.saveCustomer) Error saving customers")
+
 
 
     def capitalize(text, widget):

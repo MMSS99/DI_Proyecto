@@ -102,3 +102,17 @@ class Connection:
 
         except Exception as error:
             print("Deleting connection method failed!", error)
+
+    @staticmethod
+    def addCustomer(customerInfo):
+        try:
+            query = QtSql.QSqlQuery()
+            query.prepare("INSERT INTO customers VALUES (:dni_nie, :adddata, :surname, :name, :mail, :mobile, :address, :province, :city, :invoicetype, :historical);")
+
+            valuePlaceholerList = [":dni_nie", ":adddata", ":surname", ":name", ":mail", ":mobile", ":address", ":province", ":city", ":invoicetype", ":historical"]
+            for i in range(len(valuePlaceholerList)):
+                query.bindValue(valuePlaceholerList[i], customerInfo[i])
+
+
+        except Exception as error:
+            print("Error saving the new customer! ", error)
