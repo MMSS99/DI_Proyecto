@@ -28,12 +28,12 @@ class Customers:
                 else:
                     globals.ui.txt_dnicif.setStyleSheet('background-color:#FFC0CB; color: black')
                     globals.ui.txt_dnicif.setText(None)
-                    globals.ui.txt_dnicif.setFocus()
+                    #globals.ui.txt_dnicif.setFocus()
             else:
                 globals.ui.txt_dnicif.setStyleSheet('background-color:#FFC0CB; color: black')
                 globals.ui.txt_dnicif.setText(None)
-                globals.ui.txt_email.setPlaceholderText("Invalid DNI")
-                globals.ui.txt_dnicif.setFocus()
+                globals.ui.txt_dnicif.setPlaceholderText("Invalid DNI")
+                #globals.ui.txt_dnicif.setFocus()
         except Exception as error:
             print("error en validar dni ", error)
 
@@ -47,7 +47,7 @@ class Customers:
             globals.ui.txt_email.setStyleSheet('background-color:#FFC0CB; color: black')
             globals.ui.txt_email.setText(None)
             globals.ui.txt_email.setPlaceholderText("Invalid email")
-            globals.ui.txt_email.setFocus()
+            #globals.ui.txt_email.setFocus()
 
     @staticmethod
     def checkMobile(self=None):
@@ -59,7 +59,7 @@ class Customers:
             globals.ui.txt_phone.setStyleSheet('background-color:#FFC0CB; color: black')
             globals.ui.txt_phone.setText(None)
             globals.ui.txt_phone.setPlaceholderText("Invalid phone")
-            globals.ui.txt_phone.setFocus()
+            #globals.ui.txt_phone.setFocus()
 
     def loadTable(self):
         try:

@@ -37,6 +37,26 @@ class Events:
         except Exception as e:
             print("Error while opening the calendar window", e)
 
+    def clearEntries(self=None):
+        try:
+            for text in [globals.ui.txt_dnicif,
+                            globals.ui.txt_registrationdate,
+                            globals.ui.txt_surname,
+                            globals.ui.txt_name,
+                            globals.ui.txt_email,
+                            globals.ui.txt_phone,
+                            globals.ui.txt_address]:
+                text.clear()
+
+            for combo in [globals.ui.cmb_cities, globals.ui.cmb_cities]:
+                combo.setCurrentIndex(-1)
+
+            globals.ui.rbt_digitalbill.setChecked(True)
+            globals.ui.chk_inactive.setChecked(False)
+
+        except Exception as error:
+            print("!!! (Events.clearEntries) Error clearing entries", error)
+
     def showAbout(self=None):
         try:
             globals.dlg_about.show()

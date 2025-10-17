@@ -40,6 +40,7 @@ class Main(QtWidgets.QMainWindow):
 
         #functions in buttons
         globals.ui.btn_calendar.clicked.connect(Events.openCalendar)
+        globals.ui.btn_clean.clicked.connect(Events.clearEntries)
         globals.ui.btn_delete.clicked.connect(Customers.deleteCustomer)
         globals.ui.btn_save.clicked.connect(Customers.saveCustomer)
 
