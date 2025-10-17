@@ -64,7 +64,7 @@ class Customers:
     def loadTable(self):
         try:
             listTabCustomers = Connection.getCustomers()
-            print(listTabCustomers)
+            print("(customers.loadTable): CUSTOMER LIST LOADED")
             index = 0
             for record in listTabCustomers:
                 globals.ui.tableWidget.setRowCount(index + 1)
@@ -88,7 +88,6 @@ class Customers:
     def selectCustomer():
         try:
             row_selected = globals.ui.tableWidget.selectedItems()
-            print (row_selected[2].text())
             mobile_customer_selected = row_selected[2].text()
             all_customer_data = Connection.getCustomerData(str(mobile_customer_selected))
 
@@ -106,7 +105,7 @@ class Customers:
             else:
                 globals.ui.rbt_digitalbill.setChecked(True)
 
-            print("rowSelected: ", all_customer_data)
+            print("(Customers.selectCrustomer) SELECTED ROW: ", all_customer_data)
         except Exception as error:
             print("error en selectCustomer ", error)
 

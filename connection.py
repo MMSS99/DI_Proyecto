@@ -64,8 +64,8 @@ class Connection:
     def getCustomers():
         all_customers = []
         query = QtSql.QSqlQuery()
-        query.prepare("SELECT * FROM customers WHERE historical = :true order by surname;")
-        query.bindValue(":true", str(True))
+        query.prepare("SELECT * FROM customers WHERE historical = :false order by surname;")
+        query.bindValue(":false", str(False))
         if query.exec():
             while query.next():
                 row = [query.value(i) for i in range(query.record().count())]
