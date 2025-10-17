@@ -115,4 +115,4 @@ class Connection:
 
 
         except Exception as error:
-            print("Error saving the new customer! ", error)
+            print("!!(Connection.addCustomer) Error saving the new customer! ", error)
