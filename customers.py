@@ -89,19 +89,7 @@ class Customers:
             mobile_customer_selected = row_selected[2].text()
             all_customer_data = Connection.getCustomerData(str(mobile_customer_selected), "mobile")
 
-            all_data_boxes = [globals.ui.txt_dnicif, globals.ui.txt_registrationdate, globals.ui.txt_surname, globals.ui.txt_name,
-                              globals.ui.txt_email, globals.ui.txt_phone, globals.ui.txt_address]
-
-            for i in range(len(all_data_boxes)):
-                all_data_boxes[i].setText(str(all_customer_data[i]))
-
-            globals.ui.cmb_provinces.setCurrentText(str(all_customer_data[7]))
-            globals.ui.cmb_cities.setCurrentText(str(all_customer_data[8]))
-
-            if str(all_customer_data[9]) == "paper":
-                globals.ui.rbt_physicalbill.setChecked(True)
-            else:
-                globals.ui.rbt_digitalbill.setChecked(True)
+            Customers.loadData(all_customer_data)
 
             print("(Customers.selectCustomer) SELECTED ROW: ", all_customer_data)
         except Exception as error:
@@ -178,3 +166,20 @@ class Customers:
 
         except Exception as error:
             print("!!(Customers.capitalize) Error while capitalizing the name/surname ", error)
+
+    @staticmethod
+    def loadData(all_customer_data):
+        all_data_boxes = [globals.ui.txt_dnicif, globals.ui.txt_registrationdate, globals.ui.txt_surname,
+                          globals.ui.txt_name,
+                          globals.ui.txt_email, globals.ui.txt_phone, globals.ui.txt_address]
+
+        for i in range(len(all_data_boxes)):
+            all_data_boxes[i].setText(str(all_customer_data[i]))
+
+        globals.ui.cmb_provinces.setCurrentText(str(all_customer_data[7]))
+        globals.ui.cmb_cities.setCurrentText(str(all_customer_data[8]))
+
+        if str(all_customer_data[9]) == "paper":
+            globals.ui.rbt_physicalbill.setChecked(True)
+        else:
+            globals.ui.rbt_digitalbill.setChecked(True)
