@@ -73,12 +73,18 @@ class Connection:
         return all_customers
 
     @staticmethod
-    def getCustomerData(customer_phone):
+    def getCustomerData(search_data, search_key):
         try:
             all_customer_data = []
             query = QtSql.QSqlQuery()
-            query.prepare("SELECT * FROM customers WHERE mobile = :mobile;")
-            query.bindValue(":mobile", str(customer_phone).strip())
+            match search_key:
+                case "mobile":
+                    query.prepare("SELECT * FROM customers WHERE mobile = :mobile;")
+                    query.bindValue(":mobile", str(search_data).strip())
+                case "ID":
+                    query.prepare("SELECT * FROM customers WHERE dni_nie = :dni_nie;")
+                    query.bindValue(":dni_nie", str(search_data).strip())
+
             if query.exec():
                 while query.next():
                     for i in range(query.record().count()):

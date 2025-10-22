@@ -87,7 +87,7 @@ class Customers:
         try:
             row_selected = globals.ui.tableWidget.selectedItems()
             mobile_customer_selected = row_selected[2].text()
-            all_customer_data = Connection.getCustomerData(str(mobile_customer_selected))
+            all_customer_data = Connection.getCustomerData(str(mobile_customer_selected), "mobile")
 
             all_data_boxes = [globals.ui.txt_dnicif, globals.ui.txt_registrationdate, globals.ui.txt_surname, globals.ui.txt_name,
                               globals.ui.txt_email, globals.ui.txt_phone, globals.ui.txt_address]
@@ -106,6 +106,14 @@ class Customers:
             print("(Customers.selectCustomer) SELECTED ROW: ", all_customer_data)
         except Exception as error:
             print("(Customers.selectCustomer) Error while selecting a customer ", error)
+
+    @staticmethod
+    def searchCustomer():
+        try:
+            search_id = globals.ui.txt_dnicif.text()
+
+        except Exception as error:
+            print("!!(Customer.searchCustomer) Error while searching a customer ", error)
 
     @staticmethod
     def deleteCustomer(self=None):
