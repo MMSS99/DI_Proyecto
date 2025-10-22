@@ -44,6 +44,7 @@ class Main(QtWidgets.QMainWindow):
         globals.ui.btn_delete.clicked.connect(Customers.deleteCustomer)
         globals.ui.btn_save.clicked.connect(Customers.saveCustomer)
         globals.ui.btn_search.clicked.connect(Customers.searchCustomer)
+        globals.ui.btn_modify.clicked.connect(Customers.modifyCustomer)
 
         #functions in combobox
         Events.loadProv(self)
