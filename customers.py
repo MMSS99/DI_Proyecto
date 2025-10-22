@@ -28,14 +28,12 @@ class Customers:
                 else:
                     globals.ui.txt_dnicif.setStyleSheet('background-color:#FFC0CB; color: black')
                     globals.ui.txt_dnicif.setText(None)
-                    #globals.ui.txt_dnicif.setFocus()
             else:
                 globals.ui.txt_dnicif.setStyleSheet('background-color:#FFC0CB; color: black')
                 globals.ui.txt_dnicif.setText(None)
                 globals.ui.txt_dnicif.setPlaceholderText("Invalid DNI")
-                #globals.ui.txt_dnicif.setFocus()
         except Exception as error:
-            print("error en validar dni ", error)
+            print("(Customer.checkDni) Error while checking ID", error)
 
     @staticmethod
     def checkMail(self=None):
@@ -64,7 +62,7 @@ class Customers:
     def loadTable(self):
         try:
             listTabCustomers = Connection.getCustomers()
-            print("\n(customers.loadTable): CUSTOMER LIST LOADED")
+            print("\n(Customers.loadTable): CUSTOMER LIST LOADED")
             index = 0
             for record in listTabCustomers:
                 globals.ui.tableWidget.setRowCount(index + 1)
@@ -82,7 +80,7 @@ class Customers:
                 globals.ui.tableWidget.item(index, 5).setTextAlignment(QtCore.Qt.AlignmentFlag.AlignCenter.AlignCenter)
                 index += 1
         except Exception as error:
-            print("error en loadTable ", error)
+            print("!!(Customer.loadTable) Error while loading table ", error)
 
     @staticmethod
     def selectCustomer():
@@ -105,9 +103,9 @@ class Customers:
             else:
                 globals.ui.rbt_digitalbill.setChecked(True)
 
-            print("(Customers.selectCrustomer) SELECTED ROW: ", all_customer_data)
+            print("(Customers.selectCustomer) SELECTED ROW: ", all_customer_data)
         except Exception as error:
-            print("error en selectCustomer ", error)
+            print("(Customers.selectCustomer) Error while selecting a customer ", error)
 
     @staticmethod
     def deleteCustomer(self=None):
@@ -132,7 +130,7 @@ class Customers:
                 mbox.setIcon(QtWidgets.QMessageBox.Icon.Warning)
                 mbox.setText("An error has ocurred during the delete execution. Contact the administrator or try again.")
         except Exception as error:
-            print("Error while deleting customer", error)
+            print("!!(Customers.deleteCustomer) Error while deleting customer", error)
 
     @staticmethod
     def saveCustomer(self=None):
@@ -171,4 +169,4 @@ class Customers:
             widget.setText(capitalizedtext)
 
         except Exception as error:
-            print("Error while capitalizing the name/surname ", error)
+            print("!!(Customers.capitalize) Error while capitalizing the name/surname ", error)
