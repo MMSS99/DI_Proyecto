@@ -99,6 +99,17 @@ class Customers:
     def searchCustomer():
         try:
             search_id = globals.ui.txt_dnicif.text()
+            all_customer_data = Connection.getCustomerData(str(search_id), "ID")
+
+            if len(all_customer_data) > 0:
+                Customers.loadData(all_customer_data)
+                print("(Customers.searchCustomer) FOUND CUSTOMER: ", all_customer_data)
+            else:
+                mbox = QtWidgets.QMessageBox()
+                mbox.setWindowTitle("Warning")
+                mbox.setIcon(QtWidgets.QMessageBox.Icon.Warning)
+                mbox.setText("No customer by that ID has been found.")
+
 
         except Exception as error:
             print("!!(Customer.searchCustomer) Error while searching a customer ", error)
