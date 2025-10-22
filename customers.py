@@ -145,31 +145,20 @@ class Customers:
     @staticmethod
     def saveCustomer(self=None):
         try:
-            customerInfo = [globals.ui.txt_dnicif.text(),
-                            globals.ui.txt_registrationdate.text(),
-                            globals.ui.txt_surname.text(),
-                            globals.ui.txt_name.text(),
-                            globals.ui.txt_email.text(),
-                            globals.ui.txt_phone.text(),
-                            globals.ui.txt_address.text(),
-                            globals.ui.cmb_provinces.currentText(),
-                            globals.ui.cmb_cities.currentText()]
-
-            if globals.ui.rbt_physicalbill.isChecked():
-                customerInfo.append("paper")
-            else:
-                customerInfo.append("electronic")
-
-            if globals.ui.chk_inactive.isChecked():
-                customerInfo.append(str(True))
-            else:
-                customerInfo.append(str(False))
-
-            if Connection.addCustomer(customerInfo):
+            if Connection.addCustomer(Customers.parseData()):
                 Customers.loadTable(self)
 
         except Exception as error:
             print ("!!(Customers.saveCustomer) Error saving customers", error)
+
+    @staticmethod
+    def modifyCustomer(self=None):
+        try:
+            if Connection.alterCustomer(Customers.parseData()):
+                Customers.loadTable(self)
+
+        except Exception as error:
+            print("!!(Customers.modifyCustomer) Error while modifying customer", error)
 
 
 
@@ -197,3 +186,31 @@ class Customers:
             globals.ui.rbt_physicalbill.setChecked(True)
         else:
             globals.ui.rbt_digitalbill.setChecked(True)
+
+    @staticmethod
+    def parseData():
+        try:
+            customerInfo = [globals.ui.txt_dnicif.text(),
+                            globals.ui.txt_registrationdate.text(),
+                            globals.ui.txt_surname.text(),
+                            globals.ui.txt_name.text(),
+                            globals.ui.txt_email.text(),
+                            globals.ui.txt_phone.text(),
+                            globals.ui.txt_address.text(),
+                            globals.ui.cmb_provinces.currentText(),
+                            globals.ui.cmb_cities.currentText()]
+
+            if globals.ui.rbt_physicalbill.isChecked():
+                customerInfo.append("paper")
+            else:
+                customerInfo.append("electronic")
+
+            if globals.ui.chk_inactive.isChecked():
+                customerInfo.append(str(True))
+            else:
+                customerInfo.append(str(False))
+
+            return customerInfo
+        except Exception as error:
+            print("!!(Customers.parseData) Error while parsing data", error)
+

@@ -129,3 +129,24 @@ class Connection:
 
         except Exception as error:
             print("!!(Connection.addCustomer) Error saving the new customer! ", error)
+
+    @staticmethod
+    def alterCustomer(customerInfo):
+        try:
+            query = QtSql.QSqlQuery()
+            query.prepare("UPDATE customers SET dni_nie = :dni_nie, adddata = :adddata, surname = :surname, name = :name, mail = :mail, mobile = :mobile, address = :address, province = :province, city = :city, invoicetype = :invoicetype, historical = :historical WHERE dni_nie = :dni_nie;")
+
+            valuePlaceholerList = [":dni_nie", ":adddata", ":surname", ":name", ":mail", ":mobile", ":address", ":province", ":city", ":invoicetype", ":historical"]
+            for i in range(len(valuePlaceholerList)):
+                query.bindValue(valuePlaceholerList[i], customerInfo[i])
+
+            if query.exec():
+                print ("(Connection.alterCustomer) The next customer has been added: ", customerInfo)
+                return True
+            else:
+                print("!!(Connection.alterCustomer) Query execution has failed! ", customerInfo)
+                return False
+
+
+        except Exception as error:
+            print("!!(Connection.alterCustomer) Error saving the new customer! ", error)
