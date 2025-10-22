@@ -109,6 +109,7 @@ class Customers:
                 mbox.setWindowTitle("Warning")
                 mbox.setIcon(QtWidgets.QMessageBox.Icon.Warning)
                 mbox.setText("No customer by that ID has been found.")
+                mbox.exec()
 
 
         except Exception as error:
@@ -127,15 +128,17 @@ class Customers:
                 Connection.deleteCustomer(dnicif)
                 print("dnicif: ", dnicif)
                 Customers.loadTable(self)
-                mbox = QtWidgets.QMessageBox()
-                mbox.setWindowTitle("Información")
-                mbox.setIcon(QtWidgets.QMessageBox.Icon.Information)
-                mbox.setText("Deleting customer" + str(dnicif))
+                mboxaux = QtWidgets.QMessageBox()
+                mboxaux.setWindowTitle("Información")
+                mboxaux.setIcon(QtWidgets.QMessageBox.Icon.Information)
+                mboxaux.setText("Deleting customer" + str(dnicif))
+                mboxaux.exec()
             else:
                 mbox = QtWidgets.QMessageBox()
                 mbox.setWindowTitle("Warning")
                 mbox.setIcon(QtWidgets.QMessageBox.Icon.Warning)
                 mbox.setText("An error has ocurred during the delete execution. Contact the administrator or try again.")
+                mbox.exec()
         except Exception as error:
             print("!!(Customers.deleteCustomer) Error while deleting customer", error)
 
