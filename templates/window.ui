@@ -418,11 +418,17 @@
             </property>
            </spacer>
           </item>
-          <item row="1" column="3">
+          <item row="1" column="3" alignment="Qt::AlignRight">
            <widget class="QCheckBox" name="chk_inactive">
+            <property name="minimumSize">
+             <size>
+              <width>140</width>
+              <height>25</height>
+             </size>
+            </property>
             <property name="maximumSize">
              <size>
-              <width>130</width>
+              <width>140</width>
               <height>25</height>
              </size>
             </property>

@@ -2,11 +2,13 @@ from PyQt6.QtWidgets import QTableWidget, QWidget
 
 import events
 import globals
+import styles
 from venAux import *
 from customers import *
 from events import *
 from window import *
 from connection import *
+from styles import *
 import sys
 
 class Main(QtWidgets.QMainWindow):
@@ -14,6 +16,7 @@ class Main(QtWidgets.QMainWindow):
         super(Main, self).__init__()
         globals.ui = Ui_main_window()
         globals.ui.setupUi(self)
+        self.setStyleSheet(styles.load_stylesheet())
 
         #instancias
         globals.dlg_calendar = Calendar()

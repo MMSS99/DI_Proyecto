@@ -1,0 +1,152 @@
+
+/* --- MAIN WINDOW --- */
+QMainWindow{
+    background-color: #EEEEEE;
+
+}
+
+QMenuBar{
+    background-color: #EEEEEE;
+    color: #000000;
+}
+
+QMenuBar::item:selected{
+    background: #aac1d9;
+}
+
+QMenuBar::item:pressed{
+    border: 1px solid #96abc0;
+    background: #8294a7;
+}
+
+QMenu{
+    background-color: #aac1d9;
+    color: #000000;
+}
+
+QMenu::item:selected{
+    background: #8294a7;
+}
+
+QMenu::item:pressed{
+    border: 1px solid #96abc0;
+    background: #8294a7;
+}
+
+
+
+/* --- TAB --- */
+QWidget#tab_customers {
+    background: #FFFFFF;
+    color: #000000;
+
+}
+
+QTabWidget::pane {
+    border: empty;
+}
+
+QTabBar::tab{
+    background: #FFFFFF;
+    color: #000000;
+    border: 1px solid #EEEEEE;
+    padding: 4px 14px;
+
+}
+
+QTabBar::tab:hover{
+    background: #aac1d9;
+    color: #000000;
+    border: 1px solid #8294a7;
+}
+
+QTabBar::tab:selected{
+    background: #aac1d9;
+    color: #000000;
+    border: 1px solid #8294a7;
+}
+
+/* --- TEXTENTRY --- */
+
+QLineEdit{
+    background-color: #EEEEEE;
+    border: none;
+    color: #000000
+}
+
+QLineEdit:hover{
+    background-color: #aac1d9;
+}
+
+QLineEdit:focus{
+    background-color: #b9d2ec;
+}
+
+/* --- COMBOS --- */
+QComboBox{
+    background-color: #EEEEEE;
+    color: #000000;
+    border: none;
+}
+
+QComboBox:hover{
+    background-color: #aac1d9;
+    color: #000000;
+    border: none;
+}
+
+QComboBox:editable {
+    background: #EEEEEE;
+    border: none;
+}
+
+QComboBox:editable:hover{
+    background-color: #aac1d9;
+}
+
+QComboBox::drop-down{
+    background: #EEEEEE;
+    border: none;
+    color: #000000;
+}
+
+
+QComboBox QAbstractItemView {
+    background-color: #EEEEEE;
+    selection-background-color: #aac1d9;
+    color: #000000;
+}
+
+
+/* --- BOTONES --- */
+QPushButton{
+    background-color: #aac1d9;
+    color: #000000;
+    border: 1px solid #aac1d9;
+}
+
+QPushButton:hover{
+    background-color: #8294a7;
+    color: #000000;
+    border: 1px solid #aac1d9
+}
+
+QCheckBox{
+    color: #000000;
+}
+
+QRadioButton{
+    color: #000000;
+}
+
+/* --- LABELS --- */
+QLabel{
+    color: #000000;
+}
+
+
+/* --- EXTRA --- */
+QWidget{
+    font-family: "Roboto", "Segoe UI", sans-serif;
+}
+
