@@ -110,6 +110,10 @@ QComboBox::drop-down{
     color: #000000;
 }
 
+QComboBox::drop-arrow{
+    color: #000000;
+}
+
 
 QComboBox QAbstractItemView {
     background-color: #EEEEEE;
