@@ -274,9 +274,15 @@
           </item>
           <item row="9" column="1">
            <widget class="QRadioButton" name="rbt_physicalbill">
+            <property name="minimumSize">
+             <size>
+              <width>90</width>
+              <height>20</height>
+             </size>
+            </property>
             <property name="maximumSize">
              <size>
-              <width>71</width>
+              <width>90</width>
               <height>20</height>
              </size>
             </property>
@@ -326,68 +332,17 @@
             </property>
            </widget>
           </item>
-          <item row="0" column="3">
-           <widget class="QLineEdit" name="txt_registrationdate">
+          <item row="8" column="1">
+           <widget class="QRadioButton" name="rbt_digitalbill">
             <property name="minimumSize">
              <size>
-              <width>0</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>113</width>
+              <width>90</width>
               <height>20</height>
              </size>
             </property>
-            <property name="text">
-             <string/>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignCenter</set>
-            </property>
-            <property name="readOnly">
-             <bool>true</bool>
-            </property>
-            <property name="placeholderText">
-             <string>DD/MM/AAAA</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="4">
-           <widget class="QPushButton" name="btn_calendar">
-            <property name="minimumSize">
-             <size>
-              <width>24</width>
-              <height>24</height>
-             </size>
-            </property>
             <property name="maximumSize">
              <size>
-              <width>24</width>
-              <height>24</height>
-             </size>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-            <property name="icon">
-             <iconset>
-              <normaloff>../img/calendar.png</normaloff>../img/calendar.png</iconset>
-            </property>
-            <property name="iconSize">
-             <size>
-              <width>32</width>
-              <height>32</height>
-             </size>
-            </property>
-           </widget>
-          </item>
-          <item row="8" column="1">
-           <widget class="QRadioButton" name="rbt_digitalbill">
-            <property name="maximumSize">
-             <size>
-              <width>71</width>
+              <width>90</width>
               <height>20</height>
              </size>
             </property>
@@ -606,6 +561,79 @@
             </item>
            </layout>
           </item>
+          <item row="0" column="3">
+           <layout class="QGridLayout" name="gridLayout_6">
+            <property name="sizeConstraint">
+             <enum>QLayout::SetMinAndMaxSize</enum>
+            </property>
+            <item row="0" column="0" alignment="Qt::AlignTop">
+             <widget class="QLineEdit" name="txt_registrationdate">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>113</width>
+                <height>25</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>113</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="layoutDirection">
+               <enum>Qt::LeftToRight</enum>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+              <property name="placeholderText">
+               <string>DD/MM/AAAA</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QPushButton" name="btn_calendar">
+              <property name="minimumSize">
+               <size>
+                <width>24</width>
+                <height>24</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>24</width>
+                <height>24</height>
+               </size>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>../img/calendar.png</normaloff>../img/calendar.png</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>32</width>
+                <height>32</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
          </layout>
         </item>
         <item row="3" column="0">
@@ -616,12 +644,21 @@
             <height>400</height>
            </size>
           </property>
+          <property name="editTriggers">
+           <set>QAbstractItemView::NoEditTriggers</set>
+          </property>
           <property name="selectionMode">
            <enum>QAbstractItemView::ExtendedSelection</enum>
           </property>
           <property name="selectionBehavior">
            <enum>QAbstractItemView::SelectRows</enum>
           </property>
+          <attribute name="verticalHeaderVisible">
+           <bool>false</bool>
+          </attribute>
+          <attribute name="verticalHeaderHighlightSections">
+           <bool>false</bool>
+          </attribute>
           <column>
            <property name="text">
             <string>Surname</string>
@@ -656,20 +693,7 @@
         </item>
         <item row="1" column="0">
          <layout class="QGridLayout" name="gridLayout_2">
-          <item row="0" column="0">
-           <widget class="QPushButton" name="btn_save">
-            <property name="maximumSize">
-             <size>
-              <width>125</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="text">
-             <string>Save</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="1">
+          <item row="0" column="2">
            <widget class="QPushButton" name="btn_modify">
             <property name="enabled">
              <bool>true</bool>
@@ -703,7 +727,7 @@
             </property>
            </widget>
           </item>
-          <item row="0" column="2">
+          <item row="0" column="3">
            <widget class="QPushButton" name="btn_delete">
             <property name="maximumSize">
              <size>
@@ -716,13 +740,63 @@
             </property>
            </widget>
           </item>
+          <item row="0" column="1">
+           <widget class="QPushButton" name="btn_save">
+            <property name="maximumSize">
+             <size>
+              <width>125</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Save</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Fixed</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>350</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="0" column="4">
+           <spacer name="horizontalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Fixed</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>350</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
          </layout>
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="tab_2">
+      <widget class="QWidget" name="tab_sales">
        <attribute name="title">
-        <string>Tab 2</string>
+        <string>Sales</string>
+       </attribute>
+      </widget>
+      <widget class="QWidget" name="tab_products">
+       <attribute name="title">
+        <string>Products</string>
        </attribute>
       </widget>
      </widget>
@@ -766,6 +840,21 @@
    <addaction name="menuAbout"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionBackup"/>
+   <addaction name="actionRestoreBackup"/>
+   <addaction name="separator"/>
+   <addaction name="actionExitFromToolbar"/>
+  </widget>
   <action name="actionExit">
    <property name="text">
     <string>Exit</string>
@@ -776,10 +865,38 @@
     <string>About</string>
    </property>
   </action>
+  <action name="actionBackup">
+   <property name="icon">
+    <iconset>
+     <normaloff>../img/backup.webp</normaloff>../img/backup.webp</iconset>
+   </property>
+   <property name="text">
+    <string>Backup</string>
+   </property>
+  </action>
+  <action name="actionRestoreBackup">
+   <property name="icon">
+    <iconset>
+     <normaloff>../img/restoreBackup.webp</normaloff>../img/restoreBackup.webp</iconset>
+   </property>
+   <property name="text">
+    <string>RestoreBackup</string>
+   </property>
+  </action>
+  <action name="actionExitFromToolbar">
+   <property name="icon">
+    <iconset>
+     <normaloff>../img/exit-door.png</normaloff>../img/exit-door.png</iconset>
+   </property>
+   <property name="text">
+    <string>ExitFromToolbar</string>
+   </property>
+   <property name="toolTip">
+    <string>ExitFromToolbar</string>
+   </property>
+  </action>
  </widget>
  <tabstops>
-  <tabstop>txt_registrationdate</tabstop>
-  <tabstop>btn_calendar</tabstop>
   <tabstop>txt_surname</tabstop>
   <tabstop>txt_name</tabstop>
   <tabstop>txt_email</tabstop>

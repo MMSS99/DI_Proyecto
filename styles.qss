@@ -33,6 +33,20 @@ QMenu::item:pressed{
     background: #8294a7;
 }
 
+QToolBar{
+    background-color: #EEEEEE;
+    color: #000000;
+    border-bottom: 1px solid #DDDDDD;
+}
+
+QToolButton{
+    padding-left: 15px;
+}
+
+QToolButton:hover{
+    background-color: #aac1d9;
+}
+
 
 
 /* --- TAB --- */
@@ -135,18 +149,92 @@ QPushButton:hover{
     border: 1px solid #aac1d9
 }
 
+QPushButton#btn_delete{
+    background-color: #e75b5b;
+}
+
+QPushButton#btn_delete:hover{
+    background-color: #e43636;
+}
+
+QPushButton#btn_calendar{
+    background-color: #FFFFFF;
+}
+QPushButton#btn_calendar:hover{
+    background-color: #aac1d9;
+}
+
 QCheckBox{
     color: #000000;
 }
 
+QCheckBox::indicator:unchecked{
+    background-color: #EEEEEE;
+}
+
+QCheckBox::indicator:hover{
+    background-color: #e75b5b
+}
+
+QCheckBox::indicator:checked{
+    background-color: #b30909;
+    border: 3px solid #EEEEEE;
+}
+
 QRadioButton{
     color: #000000;
+    padding: 4px;
 }
+
+QRadioButton::indicator:unchecked{
+    background-color: #EEEEEE;
+    border: 3px solid #EEEEEE;
+    border-radius: 7px;
+}
+
+QRadioButton::indicator:hover{
+    background-color: #aac1d9;
+    border: 3px solid #EEEEEE;
+    border-radius: 7px;
+}
+
+QRadiobutton::indicator:checked{
+    background-color: #99c1ea;
+    border: 3px solid #99c1ea;
+    border-radius: 7px;
+}
+
 
 /* --- LABELS --- */
 QLabel{
     color: #000000;
 }
+
+QLabel#lbl_customerlist{
+    font-weight: bold;
+}
+
+/* --- TABLE --- */
+QTableView{
+    background-color: #EEEEEE;
+    selection-background-color: #aac1d9;
+    color: #000000;
+}
+
+QTableView::item:selected{
+    background-color: #aac1d9;
+}
+
+QTableView::item:hover{
+    background-color: #aac1d9;
+}
+
+QHeaderView{
+    background-color: #DDDDDD;
+    color: #000000;
+
+}
+
 
 
 /* --- EXTRA --- */
