@@ -1,14 +1,12 @@
 from PyQt6.QtWidgets import QTableWidget, QWidget
 
-import events
-import globals
 import styles
 from venAux import *
 from customers import *
 from events import *
 from window import *
 from connection import *
-from styles import *
+from reports import *
 import sys
 
 class Main(QtWidgets.QMainWindow):
@@ -30,6 +28,7 @@ class Main(QtWidgets.QMainWindow):
         #functions in menu bar
         globals.ui.actionExit.triggered.connect(Events.messageExit)
         globals.ui.actionAbout.triggered.connect(Events.showAbout)
+        globals.ui.actionCustomer_Reports.triggered.connect(Reports.reportCustomers)
 
         #functions in entries
         globals.ui.txt_dnicif.editingFinished.connect(Customers.checkDni)

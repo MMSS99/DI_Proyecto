@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1120</width>
-    <height>892</height>
+    <height>932</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -763,7 +763,7 @@
             </property>
             <property name="sizeHint" stdset="0">
              <size>
-              <width>350</width>
+              <width>320</width>
               <height>20</height>
              </size>
             </property>
@@ -779,7 +779,7 @@
             </property>
             <property name="sizeHint" stdset="0">
              <size>
-              <width>350</width>
+              <width>320</width>
               <height>20</height>
              </size>
             </property>
@@ -827,6 +827,7 @@
     <property name="title">
      <string>Reports</string>
     </property>
+    <addaction name="actionCustomer_Reports"/>
    </widget>
    <widget class="QMenu" name="menuAbout">
     <property name="title">
@@ -893,6 +894,11 @@
    </property>
    <property name="toolTip">
     <string>ExitFromToolbar</string>
+   </property>
+  </action>
+  <action name="actionCustomer_Reports">
+   <property name="text">
+    <string>Customer Reports</string>
    </property>
   </action>
  </widget>
