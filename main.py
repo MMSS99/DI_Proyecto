@@ -52,6 +52,12 @@ class Main(QtWidgets.QMainWindow):
         Events.loadProv(self)
         globals.ui.cmb_provinces.currentIndexChanged.connect(events.Events.loadMuni)
 
+
+
+        #turbomegacarga de un cmb desde array
+        # iva = ["4%", "12%", "20000000897%"]
+        # globals.ui.cmb_IVA.addItems(iva)
+
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
     window = Main()
