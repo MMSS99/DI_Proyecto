@@ -23,3 +23,7 @@ class About(QtWidgets.QDialog):
         globals.dlg_about.setupUi(self)
 
         globals.dlg_about.btn_closeAbout.clicked.connect(lambda: globals.dlg_about.hide())
+
+class FileDialog(QtWidgets.QFileDialog):
+    def __init__(self):
+        super(FileDialog, self).__init__()

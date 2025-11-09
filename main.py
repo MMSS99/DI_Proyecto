@@ -19,6 +19,7 @@ class Main(QtWidgets.QMainWindow):
         #instancias
         globals.dlg_calendar = Calendar()
         globals.dlg_about = About()
+        globals.dialog_open = FileDialog()
 
         #conection
         Connection.db_connection()
@@ -29,6 +30,12 @@ class Main(QtWidgets.QMainWindow):
         globals.ui.actionExit.triggered.connect(Events.messageExit)
         globals.ui.actionAbout.triggered.connect(Events.showAbout)
         globals.ui.actionCustomer_Reports.triggered.connect(Reports.reportCustomers)
+        globals.ui.actionExport_to_CSV.triggered.connect(Events.exportCustomersToCsv)
+
+        #functions in top action bar
+        globals.ui.actionBackup.triggered.connect(Events.saveBackup)
+        globals.ui.actionRestoreBackup.triggered.connect(Events.restoreBackup)
+
 
         #functions in entries
         globals.ui.txt_dnicif.editingFinished.connect(Customers.checkDni)
@@ -51,6 +58,9 @@ class Main(QtWidgets.QMainWindow):
         #functions in combobox
         Events.loadProv(self)
         globals.ui.cmb_provinces.currentIndexChanged.connect(events.Events.loadMuni)
+
+        #show status bar
+        Events.showStatusBar()
 
 
 
