@@ -59,6 +59,9 @@ class Main(QtWidgets.QMainWindow):
         Events.loadProv(self)
         globals.ui.cmb_provinces.currentIndexChanged.connect(events.Events.loadMuni)
 
+        #functions in checkbox
+        globals.ui.chk_showHistorical.stateChanged.connect(Customers.loadTable)
+
         #show status bar
         Events.showStatusBar()
 

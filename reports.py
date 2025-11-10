@@ -1,7 +1,10 @@
 import datetime
 
+
 from reportlab.pdfgen import canvas
 import os
+
+from PIL import Image
 
 from connection import Connection
 
@@ -13,11 +16,18 @@ class Reports:
             data = datetime.datetime.now().strftime("%d_%m_%Y_%H-%M-%S")
             reportsPath = ".\\data\\reports\\"
             namereport = data + "_reportCostumers.pdf"
+            titulo = "Listado Clientes"
             pdf_path = os.path.join(reportsPath, namereport)
+
 
             records = Connection.getCustomers()
             c = canvas.Canvas(pdf_path)
+
+            Reports.drawPageHeader(c,titulo)
+            Reports.drawFooter(c, titulo)
             Reports.drawHeader(c)
+
+
 
             x = 55
             y = 625
@@ -27,6 +37,9 @@ class Reports:
                     Reports.drawClientInfo(c, record, y)
                     y -= 25
                 else:
+                    c.showPage()
+                    Reports.drawPageHeader(c, titulo)
+                    Reports.drawFooter(c, titulo)
                     Reports.drawHeader(c)
                     y = 625
 
@@ -49,7 +62,7 @@ class Reports:
         for i in range(len(datafields)):
             canvas.drawString(datafieldsCardinality[i][0], datafieldsCardinality[i][1], datafields[i])
 
-        canvas.line(55, 640, 550, 640)
+        canvas.line(50, 640, 550, 640)
 
     @staticmethod
     def drawClientInfo(canvas, clientRecord, y):
@@ -65,6 +78,49 @@ class Reports:
             canvas.drawString(cardinality[-1][0], cardinality[-1][1], "Active")
         else:
             canvas.drawString(cardinality[-1][0], cardinality[-1][1], "Inactive")
+
+
+    @staticmethod
+    def drawFooter(canvas, titulo):
+        try:
+            day = datetime.datetime.today()
+            day = day.strftime("%d/%m/%Y %H:%M:%S")
+            canvas.setFont("Helvetica", 7)
+            canvas.drawString(70, 50, day)
+            canvas.drawString(277, 50, titulo)
+            canvas.drawString(495, 50, str("Página: " + str(canvas.getPageNumber())))
+
+        except Exception as error:
+            print("(!!Reports.drawFooter) Error creating new report", error)
+
+
+    @staticmethod
+    def drawPageHeader(canvas, titulo):
+        try:
+            path_logo = ".\\img\\icon.png"
+            logo = Image.open(path_logo)
+            if isinstance(logo, Image.Image):
+                canvas.line(50, 60, 550, 60)
+                canvas.setFont("Helvetica-Bold", size= 10)
+                canvas.drawString(55, 785, "EMPRESA TEIS")
+                canvas.drawCentredString(300, 675, titulo)
+                canvas.line(50, 665, 550, 665)
+                canvas.drawImage(path_logo, 470, 745, width=40, height=40)
+                canvas.setFont("Helvetica", size=9)
+
+                canvas.drawString(55, 755, "CIF: VALLEKAS")
+                canvas.drawString(55, 745, "Avda. de Galicia, 101")
+                canvas.drawString(55, 735, "Vigo, 36215 (España)")
+                canvas.drawString(55, 725, "Tlf: 986123456")
+                canvas.drawString(55, 715, "email: teis@mail.com")
+
+                canvas.line(50, 800, 150, 800)
+                canvas.line(50, 707, 150, 707)
+                canvas.line(50, 800, 50, 707)
+                canvas.line(150, 800, 150, 707)
+
+        except Exception as error:
+            print("(!! Reports.drawPageHeader) Error creating new report", error)
 
 
 
