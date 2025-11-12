@@ -62,9 +62,10 @@ class Customers:
     def loadTable(self):
         try:
             listTabCustomers = Connection.getCustomers()
-            print("\n(Customers.loadTable): CUSTOMER LIST LOADED")
+            print("\n(Customers.loadTable): CUSTOMER LIST LOADED", globals.ui.tableWidget)
             index = 0
             for record in listTabCustomers:
+                print(index, record)
                 globals.ui.tableWidget.setRowCount(index + 1)
                 globals.ui.tableWidget.setItem(index, 0, QtWidgets.QTableWidgetItem(str(record[2])))
                 globals.ui.tableWidget.setItem(index, 1, QtWidgets.QTableWidgetItem(str(record[3])))
@@ -78,14 +79,19 @@ class Customers:
                 globals.ui.tableWidget.item(index, 3).setTextAlignment(QtCore.Qt.AlignmentFlag.AlignCenter.AlignCenter)
                 globals.ui.tableWidget.item(index, 4).setTextAlignment(QtCore.Qt.AlignmentFlag.AlignCenter.AlignCenter)
                 globals.ui.tableWidget.item(index, 5).setTextAlignment(QtCore.Qt.AlignmentFlag.AlignCenter.AlignCenter)
+                print(globals.ui.tableWidget.item(index, 0).text())
                 index += 1
+
         except Exception as error:
             print("!!(Customer.loadTable) Error while loading table ", error)
 
     @staticmethod
     def selectCustomer():
         try:
+            print(globals.ui.tableWidget.rowCount(), globals.ui.tableWidget)
+            print(globals.ui.tableWidget.item(0, 0).text())
             row_selected = globals.ui.tableWidget.selectedItems()
+            # carga vacio
             mobile_customer_selected = row_selected[2].text()
             all_customer_data = Connection.getCustomerData(str(mobile_customer_selected), "mobile")
 
